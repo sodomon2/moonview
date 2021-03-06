@@ -5,22 +5,22 @@
  @autor     Diaz Urbaneja Victor Diego Alejandro <sodomon2@gmail.com>
  @date      03.03.2021 18:05:16 -04
 ]]
-local screen	   = Gdk.Screen:get_default()
+local screen		= Gdk.Screen:get_default()
 
-local main_window  = Gtk.Window ({
-	default_width  = screen:get_width(),
-	default_height = screen:get_height(),
+local main_window	= Gtk.Window ({
+	default_width	= screen:get_width(),
+	default_height	= screen:get_height(),
 	Gtk.ScrolledWindow {
 		Gtk.Image {
-			id      = 'image_view',
-			visible = true
+			id		= 'image_view',
+			visible	= true
 		}
 	}
 })
 
-local headerbar = Gtk.HeaderBar {
-	title 	    = 'MoonView',
-	subtitle    = 'A simple image viewer in lua',
+local headerbar	= Gtk.HeaderBar {
+	title		= 'MoonView',
+	subtitle	= 'A simple image viewer in lua',
 	show_close_button = true
 }
 main_window:set_titlebar(headerbar)
