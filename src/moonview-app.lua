@@ -1,13 +1,27 @@
 --[[--
  @package   MoonView
- @filename  moonview.lua
+ @filename  moonview-app.lua
  @version   1.0
  @autor     Diaz Urbaneja Victor Diego Alejandro <sodomon2@gmail.com>
- @date      03.03.2021 18:05:16 -04
+ @date      05.03.2021 18:17:16 -04
 ]]
 local screen		= Gdk.Screen:get_default()
 
-local main_window	= Gtk.Window ({
+about_window  = Gtk.AboutDialog ({
+	program_name   = 'Moonview',
+	version        = '1.0',
+	copyright      = 'The Moonsteal Team\n Copyright © 2021',
+	comments  	   = 'a simple image viewer in lua',
+	website   	   = 'https://github.com/moonsteal/moonview',
+	website_label  = 'Github',
+	logo_icon_name = 'image-viewer',
+	authors 	   = {
+		'Díaz Urbaneja Víctor Diego Alejandro',
+		'The Moonsteal Team'
+	}
+})
+
+main_window	= Gtk.Window ({
 	default_width	= screen:get_width(),
 	default_height	= screen:get_height(),
 	Gtk.ScrolledWindow {

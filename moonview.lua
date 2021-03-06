@@ -3,7 +3,7 @@
  @filename  moonview.lua
  @version   1.0
  @autor     Diaz Urbaneja Victor Diego Alejandro <sodomon2@gmail.com>
- @date      03.03.2021 18:05:16 -04
+ @date      05.03.2021 18:05:16 -04
 ]]
 
 lgi			= require("lgi")
@@ -17,6 +17,7 @@ app			= Gtk.Application.new('com.github.sodomon2.moonview', Gio.ApplicationFlags
 
 -- MoonView
 require('src.moonview-app')
+require('src.moonview-menu')
 
 app:run({ arg[1], ... })
 Gtk.main()

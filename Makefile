@@ -5,7 +5,7 @@ PREFIX ?= /usr/local
 BINDIR ?= $(PREFIX)/bin
 DATADIR ?= $(PREFIX)/share/applications
 
-SRC = moonview.lua src/moonview-app.lua
+SRC = moonview.lua src/moonview-app.lua src/moonview-menu.lua
 
 moonview:
 	luastatic $(SRC) -l$(LUA) -I$(LUA_INCLUDE)
