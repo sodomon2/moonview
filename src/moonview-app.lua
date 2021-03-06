@@ -7,18 +7,15 @@
 ]]
 local screen		= Gdk.Screen:get_default()
 
-about_window  = Gtk.AboutDialog ({
-	program_name   = 'Moonview',
-	version        = '1.0',
-	copyright      = 'The Moonsteal Team\n Copyright © 2021',
-	comments  	   = 'a simple image viewer in lua',
-	website   	   = 'https://github.com/moonsteal/moonview',
-	website_label  = 'Github',
-	logo_icon_name = 'image-viewer',
-	authors 	   = {
-		'Díaz Urbaneja Víctor Diego Alejandro',
-		'The Moonsteal Team'
-	}
+about_window		= Gtk.AboutDialog ({
+	program_name	= 'Moonview',
+	version			= '1.0',
+	copyright		= 'The Moonsteal Team\n Copyright © 2021',
+	comments		= 'a simple image viewer in lua',
+	website			= 'https://github.com/moonsteal/moonview',
+	website_label	= 'Github',
+	logo_icon_name	= 'image-viewer',
+	authors			= { 'Díaz Urbaneja Víctor Diego Alejandro' }
 })
 
 main_window	= Gtk.Window ({

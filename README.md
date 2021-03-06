@@ -9,7 +9,7 @@ Moonterm is a simple image viewer in lua
 Note: in order to install `moonview` you need to have [luastatic](https://github.com/ers35/luastatic) installed
 
 ```
-git clone https://github.com/moonsteal/moonview.git
+git clone https://github.com/sodomon2/moonview.git
 make moonview
 [sudo] make install
 ```
