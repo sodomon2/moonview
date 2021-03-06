@@ -1,3 +1,4 @@
+#!/usr/bin/lua
 --[[--
  @package   MoonView
  @filename  moonview.lua
