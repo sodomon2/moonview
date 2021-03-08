@@ -7,6 +7,14 @@
 ]]
 local screen		= Gdk.Screen:get_default()
 
+image_chooser 		= Gtk.FileChooserDialog({
+	title 			= "Open Image File",
+	action 			= Gtk.FileChooserAction.OPEN
+})
+
+image_chooser:add_button("Open", Gtk.ResponseType.OK)
+image_chooser:add_button("Cancel", Gtk.ResponseType.CANCEL)
+
 about_window		= Gtk.AboutDialog ({
 	program_name	= 'Moonview',
 	version			= '1.0',
@@ -18,7 +26,7 @@ about_window		= Gtk.AboutDialog ({
 	authors			= { 'Díaz Urbaneja Víctor Diego Alejandro<sodomon2@gmail.com>' }
 })
 
-main_window	= Gtk.Window ({
+main_window			= Gtk.Window ({
 	default_width	= screen:get_width(),
 	default_height	= screen:get_height(),
 	Gtk.ScrolledWindow {
@@ -37,7 +45,7 @@ local headerbar	= Gtk.HeaderBar {
 main_window:set_titlebar(headerbar)
 
 function app:on_open(files)
-	file = files[1] and files[1]:get_parse_name()
+	local file = files[1] and files[1]:get_parse_name()
 	if(file) then
 		image = GdkPixbuf.Pixbuf.new_from_file(file)
 	end
@@ -50,7 +58,22 @@ function main_window:on_destroy()
 	app:quit()
 end
 
+function get_image_from_chooser()
+	chooser		= image_chooser:run()
+	local file	= image_chooser:get_filename()
+
+	image 		= GdkPixbuf.Pixbuf.new_from_file(file)
+	main_window.child.image_view:set_from_pixbuf(image)
+	image_chooser:hide()
+end
+
 function app:on_activate()
-	main_window:show_all()
+	get_image_from_chooser()
+	if chooser == Gtk.ResponseType.OK then
+		main_window:show_all()
+	elseif chooser == Gtk.ResponseType.CANCEL then
+		image_chooser:hide()
+		os.exit(1)
+	end
 	main_window:set_icon_name('image-viewer')
 end

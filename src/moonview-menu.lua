@@ -10,6 +10,16 @@ function main_window:on_button_press_event(event)
 	if (event.type == 'BUTTON_PRESS' and event.button == 3) then
 		menu = Gtk.Menu {
 			Gtk.ImageMenuItem {
+				label = "Open File",
+				image = Gtk.Image {
+					stock = "gtk-open"
+				},
+				on_activate = function()
+					get_image_from_chooser()
+				end
+			},
+			Gtk.SeparatorMenuItem {},
+			Gtk.ImageMenuItem {
 				label = "About MoonView",
 				image = Gtk.Image {
 					stock = "gtk-about"
