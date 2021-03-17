@@ -1,5 +1,5 @@
 # MoonView
-Moonterm is a simple image viewer in lua
+Moonview is a simple image viewer in lua
 
 ## Screenshot
 
