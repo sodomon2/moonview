@@ -15,6 +15,7 @@ function main_window:on_button_press_event(event)
 					stock = "gtk-open"
 				},
 				on_activate = function()
+					image_chooser:run()
 					get_image_from_chooser()
 				end
 			},

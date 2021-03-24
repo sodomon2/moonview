@@ -59,7 +59,6 @@ function main_window:on_destroy()
 end
 
 function get_image_from_chooser()
-	chooser		= image_chooser:run()
 	local file	= image_chooser:get_filename()
 
 	image 		= GdkPixbuf.Pixbuf.new_from_file(file)
@@ -68,8 +67,9 @@ function get_image_from_chooser()
 end
 
 function app:on_activate()
-	get_image_from_chooser()
+	chooser = image_chooser:run()
 	if chooser == Gtk.ResponseType.OK then
+		get_image_from_chooser()
 		main_window:show_all()
 	elseif chooser == Gtk.ResponseType.CANCEL then
 		image_chooser:hide()
