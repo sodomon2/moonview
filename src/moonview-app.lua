@@ -44,6 +44,24 @@ local headerbar	= Gtk.HeaderBar {
 }
 main_window:set_titlebar(headerbar)
 
+function filename(image_file)
+	local t = {}
+	for str in string.gmatch(image_file, "([^/]+)") do
+		table.insert(t, str)
+	end
+	return t[#t]
+end
+
+function get_image_from_chooser()
+	local file		   = image_chooser:get_filename()
+
+	image 			   = GdkPixbuf.Pixbuf.new_from_file_at_size(file, 900, 750)
+	headerbar.title    = filename(file)
+	headerbar.subtitle = ""
+	main_window.child.image_view:set_from_pixbuf(image)
+	image_chooser:hide()
+end
+
 function app:on_open(files)
 	local file = files[1] and files[1]:get_parse_name()
 	if(file) then
@@ -56,14 +74,6 @@ end
 function main_window:on_destroy()
 	Gtk.main_quit()
 	app:quit()
-end
-
-function get_image_from_chooser()
-	local file	= image_chooser:get_filename()
-
-	image 		= GdkPixbuf.Pixbuf.new_from_file_at_size(file, 900, 750)
-	main_window.child.image_view:set_from_pixbuf(image)
-	image_chooser:hide()
 end
 
 function app:on_activate()
