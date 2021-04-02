@@ -61,7 +61,7 @@ end
 function get_image_from_chooser()
 	local file	= image_chooser:get_filename()
 
-	image 		= GdkPixbuf.Pixbuf.new_from_file_at_scale(file, 900, 750)
+	image 		= GdkPixbuf.Pixbuf.new_from_file_at_size(file, 900, 750)
 	main_window.child.image_view:set_from_pixbuf(image)
 	image_chooser:hide()
 end
