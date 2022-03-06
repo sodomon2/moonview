@@ -18,7 +18,7 @@ image_chooser:add_button("Cancel", Gtk.ResponseType.CANCEL)
 about_window		= Gtk.AboutDialog ({
 	program_name	= 'Moonview',
 	version			= '1.0',
-	copyright		= 'Díaz Urbaneja Víctor Diego Alejandro (Sodomon)\n Copyright © 2021',
+	copyright		= 'Díaz Urbaneja Víctor Diego Alejandro (Sodomon)\n Copyright © 2021-2022',
 	comments		= 'a simple image viewer in lua',
 	website			= 'https://github.com/moonsteal/moonview',
 	website_label	= 'Github',
